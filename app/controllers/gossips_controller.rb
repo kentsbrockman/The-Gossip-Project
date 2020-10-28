@@ -14,7 +14,7 @@ class GossipsController < ApplicationController
       flash[:notice] = "Your awesome gossip has been saved!"
       redirect_to root_path 
     else
-      flash[:alert] = "Oh no :( We cannot create your gossip for the following reason(s):"
+      flash[:alert] = "Oh no! We cannot create your gossip for the following reason(s):"
       render :new
     end
   end
