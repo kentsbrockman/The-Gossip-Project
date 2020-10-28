@@ -8,15 +8,6 @@
 
 require 'faker'
 Faker::Config.locale = :fr
-require 'table_print'
-
-SyncPrivateMessageUser.destroy_all
-JoinTableTagGossip.destroy_all
-PrivateMessage.destroy_all
-Tag.destroy_all
-Gossip.destroy_all
-User.destroy_all
-City.destroy_all
 
 
 #Cities
