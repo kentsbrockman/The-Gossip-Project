@@ -1,7 +1,13 @@
 class GossipsController < ApplicationController
+  #before_action :authenticate_user, only: [:show, :new]
+
 
   def show
     @gossip = Gossip.find(params[:id])
+    @user = User.all.sample
+    @comment = Comment.new
+    #@comment.gossip_id = @gossip.id
+    #@comment.user_id = @user.id
   end
     
   def new
@@ -45,5 +51,12 @@ class GossipsController < ApplicationController
   def post_params
     post_params = params.require(:gossip).permit(:title, :content)
   end
+
+  #def authenticate_user
+    #unless current_user
+      #flash[:alert] = "You need to login in order to see all gossips !"
+      #redirect_to new_session_path
+    #end
+  #end
 
 end

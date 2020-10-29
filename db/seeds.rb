@@ -16,8 +16,7 @@ Faker::Config.locale = :fr
   zip = city_and_zip.split(' ').first
   city_name = city_and_zip.split(' ').last
   City.create(name: city_name, zip_code: zip)
-end
-puts
+  end
 puts "Cities table"
 tp City.all
 
@@ -30,58 +29,39 @@ adjectifs= %w[petit grand maigre gros chauve musclé intelligent parfait médioc
   city = City.all.sample
    text = "Je m'appelle #{first_name}, je suis #{adjectifs.sample} et mon livre préféré est #{Faker::Book.title}, je suis #{Faker::Name.title[:job].sample} à #{city.name} "
   User.create(first_name: first_name, last_name: Faker::Name.last_name, description: text, email: Faker::Internet.email, age: age, city: city)
-
-end
-puts
+  end
 puts "Users table"
 tp User.all
 
 #Gossips
 20.times do 
   Gossip.create(title: Faker::Hipster.word, content: Faker::ChuckNorris.fact, user: User.all.sample )
-  
-end
-puts
+  end
 puts "Gossips table"
 tp Gossip.all
 
 #Tags 
 10.times do
   Tag.create(title: Faker::Verb.base)
-end
-puts
+  end
 puts "Tags table"
 tp Tag.all
 
-Tag.all.each do |t|
-  JoinTableTagGossip.create(tag: t, gossip: Gossip.all.sample)
+#Sync tags with gossips
+40.times do
+JoinTableTagGossip.create(gossip: Gossip.all.sample, tag: Tag.all.sample)
 end
-
-Gossip.all.each do |g|
-  JoinTableTagGossip.create(tag: Tag.all.sample, gossip: g)
-end
-
-puts
 puts "JoinTableTagGossip table"
-tp JoinTableTagGossip.all
+tp Tag.all
 
-#Private messages
-10.times do
-  PrivateMessage.create(content:Faker::Lorem.sentence,sender: User.all.sample)
+
+# Private messages
+20.times do
+content = Faker::Lorem.sentence(word_count: 50 + rand(100))
+sender = User.all.sample
+recipient = User.all.sample
+PrivateMessage.create(content: content, sender: sender, recipient: recipient)
 end
-puts
-puts "Private messages table"
+
 tp PrivateMessage.all
 
-#Sync private_messages_users
-User.all.each do |u|
-  SyncPrivateMessageUser.create(user: u, private_message: PrivateMessage.all.sample)
-end
-
-PrivateMessage.all.each do |pm|
-  SyncPrivateMessageUser.create(user: User.all.sample, private_message: pm)
-end
-
-puts
-puts "Sync private message et users table"
-tp SyncPrivateMessageUser.all

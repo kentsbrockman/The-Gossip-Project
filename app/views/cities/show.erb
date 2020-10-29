@@ -2,9 +2,9 @@
 
 <div class="m-5 text-center">
   <h1><%= @city.name%></h1>
-  <img class="img-fluid img-goss" src="http://lorempixel.com/800/400/city/<%= params[:id] %>/">
+  <img class="img-fluid img-goss" src="http://lorempixel.com/800/400/city/">
   <% @city_posts.each do |user| %>
-    <h2><%= user.first_name%> wrote this gossip:</h2>
+    <h4 class=><%= user.first_name%> wrote this gossip:</h2>
       <% user.gossips.each do |gossip|%>
         <div class="card gossip-card m-2" style="width: auto;">
           <div class="card-body">

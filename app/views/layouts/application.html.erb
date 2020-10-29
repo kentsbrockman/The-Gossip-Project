@@ -29,67 +29,67 @@
 
   
   <body>
+  
+      <!-- Header -->
+      <nav class="navbar navbar-light bg-light static-top">
+        <div class="brand">
+          <%= link_to image_tag('favicon-32x32.png', :alt => 'logo', class:"navbar-brand"), gossip_project_home_path  %>
+          <a class="navbar-brand align-top">The Gossip Project</a>
+        </div>
+        <div class="nav-items d-flex">
+          <%= link_to "Team", gossip_project_team_path, class:"nav-link" %>
+          <%= link_to "Contact", gossip_project_contact_path, class:"nav-link" %>
+        </div>
+      </nav>
 
-    <!-- Header -->
-    <nav class="navbar navbar-light bg-light static-top">
-      <div class="brand">
-        <%= link_to image_tag('favicon-32x32.png', :alt => 'logo', class:"navbar-brand"), gossip_project_home_path  %>
-        <a class="navbar-brand align-top">The Gossip Project</a>
-      </div>
-      <div class="nav-items d-flex">
-        <%= link_to "Team", gossip_project_team_path, class:"nav-link" %>
-        <%= link_to "Contact", gossip_project_contact_path, class:"nav-link" %>
-      </div>
-    </nav>
+      <%= yield %>
 
-    <%= yield %>
-
-    <!-- Footer -->
-    <footer class="footer bg-light mb-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-            <ul class="list-inline mb-2">
-              <li class="list-inline-item">
-                <a href="<%= gossip_project_team_path %>">About</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="<%= gossip_project_contact_path %>">Contact</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="<%= gossip_project_terms_path %>">Terms of Use</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="<%= gossip_project_privacy_path %>">Privacy</a>
-              </li>
-            </ul>
-            <p class="text-muted small mb-4 mb-lg-0">&copy; The Gossip Project 2020. All Rights Reserved.</p>
-          </div>
-          <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mr-3">
-                <a href="#">
-                  <i class="fab fa-facebook fa-2x fa-fw"></i>
-                </a>
-              </li>
-              <li class="list-inline-item mr-3">
-                <a href="#">
-                  <i class="fab fa-twitter-square fa-2x fa-fw"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-instagram fa-2x fa-fw"></i>
-                </a>
-              </li>
-            </ul>
+      <!-- Footer -->
+      <footer class="footer bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left">
+              <ul class="list-inline my-2">
+                <li class="list-inline-item">
+                  <a href="<%= gossip_project_team_path %>">About</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="<%= gossip_project_contact_path %>">Contact</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="<%= gossip_project_terms_path %>">Terms of Use</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="<%= gossip_project_privacy_path %>">Privacy</a>
+                </li>
+              </ul>
+              <p class="text-muted small my-2">&copy; The Gossip Project 2020. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+              <ul class="list-inline mb-2">
+                <li class="list-inline-item mr-3">
+                  <a href="#">
+                    <i class="fab fa-facebook fa-2x fa-fw"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item mr-3">
+                  <a href="#">
+                    <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-instagram fa-2x fa-fw"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
 
 
 

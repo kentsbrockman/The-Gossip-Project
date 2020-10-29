@@ -14,8 +14,15 @@
  *= require_self
  */
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
+  display : table;
+	width: 100%;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -30,13 +37,16 @@ h6 {
 }
 
 header.masthead {
-  position: relative;
   background: url('https://upload.wikimedia.org/wikipedia/commons/9/98/Soft_Sea_Mist_%28Unsplash%29.jpg') no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
 
+footer {
+	display : table-row;
+	height: 60px;
+}
 
 .divider-custom {
   margin: 1.25rem 0 1.5rem;
