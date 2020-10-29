@@ -9,11 +9,7 @@ class GossipProjectController < ApplicationController
   def team
   end
 
-  def user
-    @user = User.all.find_by(id:params[:id])
+  def welcome
   end
 
-  def gossip
-    @gossip = Gossip.all.find_by(id:params[:id])
-  end
 end

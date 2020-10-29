@@ -1,7 +1,8 @@
 class GossipsController < ApplicationController
+  skip_forgery_protection
 
-  def index
-    @gossips = Gossip.all
+  def show
+    @gossip = Gossip.find(params[:id])
   end
     
   def new
@@ -9,10 +10,10 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new('title' => params[:title], 'content' => params[:content], user_id: 1)
+    @gossip = Gossip.new(title: params[:title], content: params[:content], user: User.all.sample)
     if @gossip.save
       flash[:notice] = "Your awesome gossip has been saved!"
-      redirect_to root_path 
+      redirect_to gossip_project_home_path 
     else
       flash[:alert] = "Oh no! We cannot create your gossip for the following reason(s):"
       render :new
@@ -29,23 +30,20 @@ class GossipsController < ApplicationController
       flash[:notice] = "Your awesome gossip has been updated!"
       redirect_to gossip_path(@gossip.id)
     else
-      flash.now[:alert] = "Oh no :( We cannot update your gossip for the following reason(s):"
+      flash.now[:alert] = "Oh no! We cannot update your gossip for the following reason(s):"
       render :edit
     end
   end
 
-  def show
-    @gossip = Gossip.find(params[:id])
-  end
-
   def destroy
     @gossip = Gossip.find(params[:id])
-    if @gossip.destroy
-      flash[:notice] = "Your gossip has been deleted!"
-      redirect_to root_path 
-    else 
-      render :destroy
-    end
+    @gossip.destroy
+    redirect_to gossip_project_home_path 
+  end
+
+  private
+  def post_params
+    post_params = params.require(:gossip).permit(:title, :content)
   end
 
 end

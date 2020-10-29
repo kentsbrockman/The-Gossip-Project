@@ -1,0 +1,9 @@
+<div class="m-5 text-center">
+    <h2><%= @user.first_name%> <%= @user.last_name %></h2>
+    <h4>From <%= @user.city.name%></h4>
+    <h5>Age: <%= @user.age%> years old</h5>
+    <h6>Email: <%= @user.email%></h6>
+    <p>Description: <%= @user.description%></p>
+    <p>Check out all the gossips from <%= link_to @user.city.name, city_path(@user.city.id), :class => "new-link"%></p>
+  </div>
+

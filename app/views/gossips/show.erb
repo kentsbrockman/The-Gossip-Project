@@ -1,0 +1,17 @@
+<% if notice %>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+</div>
+<% end %>
+
+<div class="m-5 text-center">
+  <h2>Title of this gossip: <%= @gossip.title%></h2>
+  <p>Content: <%= @gossip.content%></p>
+  <p>Written with ❤️ by <%= @gossip.user.first_name%> <%= @gossip.user.last_name%> from <%= @gossip.user.city.name%></br>➡️ <%= link_to "See this user", user_path(@gossip.user.id)%></p>
+  <p>Check out all the gossips from <%= link_to @gossip.user.city.name, city_path(@gossip.user.city.id), :class => "new-link"%></p>
+</div>
+
+<div class="row justify-content-center">
+  <%= link_to "Edit this gossip", edit_gossip_path(@gossip.id), :class => "btn-custom-delete mx-4" %>
+  <%= link_to "Delete this gossip", gossip_path(@gossip.id), :method => "DELETE", :class => "btn-custom-delete mx-4", :data => {:confirm => "Are you sure about that 😬?"} %>
+</div>

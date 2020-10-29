@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   #Gossip Project
     #Home
-    root 'gossip_project#home'
     get '/gossip_project/home', to: 'gossip_project#home'
 
     #Welcome
@@ -11,14 +10,17 @@ Rails.application.routes.draw do
     #Nav links
     get '/gossip_project/team', to: 'gossip_project#team'
     get '/gossip_project/contact', to: 'gossip_project#contact'
-  
-    #Nav towards unique gossips and users
-    get '/gossip_project/gossip/:id', to: 'gossip_project#gossip', as: 'gossip'
-    get '/gossip_project/user/:id', to: 'gossip_project#user', as: 'user'
 
-    resources :gossips
+  #Gossips
+    resources :gossips do
+      resources :comments
+    end
+
+  #Users
     resources :users
-    resources :cities, only: [:index, :show]
+
+  #Cities
+    resources :cities, only: [:show]
 
 end
 
