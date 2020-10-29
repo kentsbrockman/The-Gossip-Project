@@ -1,7 +1,10 @@
 class CommentsController < ApplicationController
   #before_action :authenticate_user, only: [:create, :update, :edit, :destroy]
   def create
+    @user = User.all.sample
     @comment = Comment.new(post_params)
+    @comment.gossip_id = params[:gossip_id]
+    @comment.user_id = @user.id
 
     if @comment.save
       flash[:notice] = "New comment Save in DB"
@@ -12,10 +15,10 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    @comment = Comment.find(params[:id])
-    @gossip = Gossip.find(params[:gossip_id])
-  end
+  #def edit
+    #@comment = Comment.find(params[:id])
+    #@gossip = Gossip.find(params[:gossip_id])
+  #end
 
   def update
     @comment = Comment.find(params[:id])

@@ -6,8 +6,8 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
     @user = User.all.sample
     @comment = Comment.new
-    #@comment.gossip_id = @gossip.id
-    #@comment.user_id = @user.id
+    @comment.gossip_id = @gossip.id
+    @comment.user_id = @user.id
   end
     
   def new

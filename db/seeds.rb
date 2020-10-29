@@ -65,3 +65,15 @@ end
 
 tp PrivateMessage.all
 
+# Comments
+50.times do
+  content = Faker::Lorem.sentence(word_count: 15)
+  user = User.all.sample
+  gossip = Gossip.all.sample
+  Comment.create(content: content, user: user, gossip: gossip)
+  end
+  
+
+
+
+
