@@ -1,5 +1,4 @@
 class GossipsController < ApplicationController
-  skip_forgery_protection
 
   def show
     @gossip = Gossip.find(params[:id])
@@ -38,7 +37,8 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to gossip_project_home_path 
+    flash[:alert] = "Your gossip has been deleted"
+    redirect_to gossip_project_home_path
   end
 
   private

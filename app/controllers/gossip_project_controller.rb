@@ -12,4 +12,10 @@ class GossipProjectController < ApplicationController
   def welcome
   end
 
+  def privacy
+  end
+
+  def terms
+  end
+
 end

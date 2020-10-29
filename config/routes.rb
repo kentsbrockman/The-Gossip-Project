@@ -4,12 +4,15 @@ Rails.application.routes.draw do
     #Home
     get '/gossip_project/home', to: 'gossip_project#home'
 
-    #Welcome
+    #Hidden welcome
     get '/gossip_project/welcome/:name', to: 'gossip_project#welcome'
 
     #Nav links
     get '/gossip_project/team', to: 'gossip_project#team'
     get '/gossip_project/contact', to: 'gossip_project#contact'
+    get '/gossip_project/privacy', to: 'gossip_project#privacy'
+    get '/gossip_project/terms', to: 'gossip_project#terms'
+
 
   #Gossips
     resources :gossips do
