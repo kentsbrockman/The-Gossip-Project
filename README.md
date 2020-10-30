@@ -1,24 +1,33 @@
-# README
+# TGP - From db to Front
+![](https://media.giphy.com/media/5rmGFLNTFpYuA/source.gif)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
+* Homepage with the latest gossips heards
+* welcome page at /welcome/:name
+* User page 
+* Gossip page at /gossips/:id
+* Team page at /team
+* Contact page at /contact
+* CRUD a Gossip with restriction by user account
+* Like a Gossip with restriction by user account
+* CRUD a comment for each Gossip with restriction by user account
 
-Things you may want to cover:
+## How is work ?
+* Please Create an account in order to like a gossip or create one or add comments
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## How to clone this ?
+1. First clone this repo
+   ```shell
+   $ git clone https://github.com/vanaklay/TGP_db_to_front.git
+   ```
+2. Run
+   ```shell
+   $ bundle install
+   ```
+3. Run
+```shell
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+$ rails server
+```
