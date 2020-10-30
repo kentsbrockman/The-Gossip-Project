@@ -39,7 +39,7 @@ $ gem install rails -v 6.0.3.4
 $ bundle install
 ```
 
-3. Derniers bails pour initialiser le BDD
+3. Derniers bails pour initialiser la BDD
 ```
 $ rails db:create
 $ rails db:migrate

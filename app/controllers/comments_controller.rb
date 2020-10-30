@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.user_id = @user.id
 
     if @comment.save
-      flash[:notice] = "New comment Save in DB"
+      flash[:notice] = "Your comment has been saved!"
       redirect_to gossip_path(@comment.gossip_id)
     else
       puts @comment.errors.messages
@@ -15,18 +15,18 @@ class CommentsController < ApplicationController
     end
   end
 
-  #def edit
-    #@comment = Comment.find(params[:id])
-    #@gossip = Gossip.find(params[:gossip_id])
-  #end
+  def edit
+    @comment = Comment.find(params[:id])
+    @gossip = Gossip.find(params[:gossip_id])
+  end
 
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(post_params)
-      flash[:notice] = "Comments updated in DB"
+      flash[:notice] = "Your comment has been updated!"
       redirect_to gossip_path(params[:gossip_id])
     else
-      flash.now[:alert] = "We cannot updated this comments for this reason(s) :"
+      flash.now[:alert] = "We cannot update this comment for the following reason(s):"
       render :edit
     end
   end
@@ -34,10 +34,10 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
-      flash[:notice] = "Comment deleted in DB"
+      flash[:alert] = "Your comment has been deleted."
       redirect_to gossip_path(params[:gossip_id]) 
     else 
-      flash.now[:alert] = "We cannot deleted this comment for this reason(s) :"
+      flash.now[:alert] = "We cannot delete this comment the following reason(s):"
       render :edit
     end
   end

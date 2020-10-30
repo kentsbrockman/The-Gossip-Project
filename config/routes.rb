@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 end
 
 
-#resources :gossips =
+#Cheat sheet --> resources :gossips
 
   #get '/gossips', to: 'gossips#index'
   #get '/gossips/:id', to: 'gossips#show'

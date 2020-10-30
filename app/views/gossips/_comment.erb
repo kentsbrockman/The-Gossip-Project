@@ -1,4 +1,10 @@
-<div>
-  <h4>Comment by <%= comment.user.first_name %></h4>
-  <p class="comment"><%= comment.content %></p>
+<div class="card m-5">
+  <div class="card-header">
+    <h6 class="text-info"><%= comment.user.first_name + " " + comment.user.last_name %><span class="text-muted font-italic font-weight-light ml-3"><%= comment.created_at.strftime("%B %d, %Y at %l:%M %P") %></span>
+    </h6>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= comment.content %></p>
+    <%= link_to "Edit comment", edit_gossip_comment_path(@gossip.id, comment.id), :class => "btn btn-outline-success btn-sm" %>
+  </div>
 </div>

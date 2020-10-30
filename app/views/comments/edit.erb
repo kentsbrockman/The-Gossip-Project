@@ -1,6 +1,5 @@
 <div class="container">
   <div class="text-center p-3 m-3">
-    <h1> Comment n° <%= @comment.id %></h1> 
     <% if alert %>
       <div class="alert alert-danger" role="alert">
         <p><%= alert %></p>
@@ -10,19 +9,17 @@
           <% end %>
         </ul>
       </div>
-      
     <% end %>
   </div>
-  <%= form_for [@gossip, @comment] do |f| %>
+
+  <%= form_for [ @gossip, @comment ] do |f| %>
     <div class="form-group">
-      <label>Content</label>
-      <%= f.text_area :content, class: 'form-control'%>
+      <%= f.text_area :content, class: 'form-control', placeholder: 'Type your comment here', rows: '5'%>
     </div>
-    <div class="form-group">
-      <button  class="btn btn-secondary" type="submit">Update</button>
+    <div class="form-group d-flex justify-content-between">
+      <%= link_to "Delete", gossip_comment_path(params[:gossip_id], params[:id]), :method => "delete", :class => "btn btn-outline-danger", :data => {:confirm => "Are you sure about that 😬?"} %>
+      <button class="btn btn-primary" type="submit">Update comment</button>
     </div>
   <% end %>
-  <div class="d-flex">
-    <%= link_to "Delete this comment" , gossip_comment_path(params[:gossip_id], params[:id]), :method => "delete", :class => "btn-custom-delete mx-auto", :data => {:confirm => "are_you_sure"} %>
-  </div>
+
 </div>
