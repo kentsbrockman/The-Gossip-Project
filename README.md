@@ -1,33 +1,51 @@
-# TGP - From db to Front
+# Pimp my Gossip Project
+
+Yo les devs / correcteurs !
+
+Bon, vu les heures qu'on a tous passé pour débugger ce giga dossier Rails ici présent, je me dis que cela mérite bien un petit gif des familles ❤️
+
 ![](https://media.giphy.com/media/5rmGFLNTFpYuA/source.gif)
 
-## Features
-* Homepage with the latest gossips heards
-* welcome page at /welcome/:name
-* User page 
-* Gossip page at /gossips/:id
-* Team page at /team
-* Contact page at /contact
-* CRUD a Gossip with restriction by user account
-* Like a Gossip with restriction by user account
-* CRUD a comment for each Gossip with restriction by user account
+(oui j'étais fan de Gossip Girl à l'époque, et j'assume comme jaja)
 
-## How is work ?
-* Please Create an account in order to like a gossip or create one or add comments
+Bwef, voici ci-dessous quelques infos sur ce qui vous attend :
 
-## How to clone this ?
-1. First clone this repo
+* Homepage avec tous les potins sans exception (mais pas d'histoire de scroll infini à la Facebook, on va pas déconner non plus 😬)
+* Quelques liens de navigation bien qualitatifs, accessibles via la homepage.
+* Des pages potins où tu peux lâcher tes com's 🔥
+* Des pages profils, pour le plaisir inouï de stalker "Noah, de Dunkerque", certifié 100% fake.
+* Des pages ville où les bots se mettent ensemble pour ragoter les b******
+* Et bien plus encore !
+* ... En vrai non pas plus lol, il est tard et je suis pas allé plus loin 😭
+* MAIS, pour me faire pardonner, sachez que :
+1/ Je pense avoir capté l'affaire des sessions, logins toussa toussa
+2/ J'ai fait le projet 100% en solo (même si j'ai picoré dans des repos à droite à gauche)
+3/ J'ai quand même fait un favicon pour ce site fake lol
+* Bisous les devs 😁
+
+
+## Le setup qui va bien
+
+1. Cloner le repo (ou dl le dossier .zip)
    ```shell
-   $ git clone https://github.com/vanaklay/TGP_db_to_front.git
+   $ git clone https://github.com/kentsbrockman/gossip_project_QPlaud.git
    ```
-2. Run
-   ```shell
-   $ bundle install
-   ```
-3. Run
+
+2. Attention, par mondanité je suis resté sur Rails 6 🕺, ce qui implique les commandes suivantes :
+
+```$ rvm gemset create rails6
+$ rvm gemset use rails6
+$ gem install rails -v 6.0.3.4```
+
+Sans oublier le `bundle install` qui fait plaisir ❤️
+
+3. Derniers bails pour initialiser le BDD :
+
 ```shell
 $ rails db:create
 $ rails db:migrate
 $ rails db:seed
 $ rails server
 ```
+
+4. Go sur "http://localhost:3000/gossip_project/home" pour kiffer ta life 🔥
