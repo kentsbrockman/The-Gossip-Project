@@ -18,9 +18,9 @@ Bwef, voici ci-dessous quelques infos sur ce qui vous attend :
 * Et bien plus encore !
 * ... En vrai non pas plus lol, il est tard et je suis pas allé plus loin 😭
 * MAIS, pour me faire pardonner, sachez que :
-  ** Je pense avoir capté l'affaire des sessions, logins toussa toussa.
-  ** J'ai fait le projet 100% en solo (même si j'ai picoré dans des repos à droite à gauche.)
-  ** J'ai quand même conçu un favicon pour ce fake site lol
+  * Je pense avoir capté l'affaire des sessions, logins toussa toussa.
+  * J'ai fait le projet 100% en solo (même si j'ai picoré dans des repos à droite à gauche.)
+  * J'ai quand même conçu un favicon pour ce fake site lol
 * Bisous les devs 😁
 
 
