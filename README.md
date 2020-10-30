@@ -26,22 +26,20 @@ Bwef, voici ci-dessous quelques infos sur ce qui vous attend :
 
 ## Le setup qui va bien
 
-1. Cloner le repo (ou dl le dossier .zip)
-   ```shell
+1. Cloner le repo ou dl le dossier .zip
+   ```
    $ git clone https://github.com/kentsbrockman/gossip_project_QPlaud.git
    ```
 
-2. Attention, par mondanité je suis resté sur Rails 6 🕺, ce qui implique les commandes suivantes :
-
+2. Attention, par mondanité je suis resté sur Rails 6 🕺, ce qui implique les commandes suivantes
 ```$ rvm gemset create rails6
 $ rvm gemset use rails6
-$ gem install rails -v 6.0.3.4```
+$ gem install rails -v 6.0.3.4
+```
+Sans oublier le bundle install qui fait plaisir ❤️
 
-Sans oublier le `bundle install` qui fait plaisir ❤️
-
-3. Derniers bails pour initialiser le BDD :
-
-```shell
+3. Derniers bails pour initialiser le BDD
+```
 $ rails db:create
 $ rails db:migrate
 $ rails db:seed
