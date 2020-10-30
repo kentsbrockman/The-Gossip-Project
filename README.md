@@ -10,7 +10,7 @@ Bon, vu les heures qu'on a tous passé pour débugger ce giga dossier Rails ici 
 
 Bwef, voici ci-dessous quelques infos sur ce qui vous attend :
 
-* Homepage avec tous les potins sans exception (mais pas d'histoire de scroll infini à la Facebook, on va pas déconner non plus 😬)
+* Homepage avec tous les potins sans exception, mais pas d'histoire de scroll infini à la Facebook, on va pas déconner non plus 😬
 * Quelques liens de navigation bien qualitatifs, accessibles via la homepage.
 * Des pages potins où tu peux lâcher tes com's 🔥
 * Des pages profils, pour le plaisir inouï de stalker "Noah, de Dunkerque", certifié 100% fake.
