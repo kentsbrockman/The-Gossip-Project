@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
     root 'gossip_project#home'
 
-    get '/home', to: 'gossip_project#home'
-
     #Hidden welcome
     get '/welcome/:name', to: 'gossip_project#welcome'
 
@@ -28,7 +26,6 @@ Rails.application.routes.draw do
 
   #Sessions
     resources :sessions, only: [:new, :create, :destroy]
-
 
 end
 
