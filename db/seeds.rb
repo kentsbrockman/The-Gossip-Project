@@ -75,6 +75,18 @@ tp PrivateMessage.all
   gossip = Gossip.all.sample
   Comment.create(content: content, user: user, gossip: gossip)
   end
+  tp Comment.all
+  puts "------------Comments printed------------"
+
+
+
+50.times do
+  user = User.all.sample
+  gossip = Gossip.all.sample
+  Like.create(user: user, gossip: gossip)
+  end
+  puts "------------Likes generated------------"
+
   
 
 

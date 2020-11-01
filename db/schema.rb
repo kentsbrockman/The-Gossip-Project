@@ -51,8 +51,12 @@ ActiveRecord::Schema.define(version: 2020_10_26_132907) do
   end
 
   create_table "likes", force: :cascade do |t|
+    t.bigint "gossip_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["gossip_id"], name: "index_likes_on_gossip_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "private_messages", force: :cascade do |t|
