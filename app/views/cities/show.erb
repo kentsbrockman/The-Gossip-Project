@@ -1,19 +1,33 @@
-
-
-<div class="m-5 text-center">
-  <h2><%= @city.name%></h2>
-  <img class="img-fluid img-goss my-5" src="http://lorempixel.com/800/400/city/">
+<div class="container">
+  <div class="text-center p-3 m-3">
+    <h2><%= @city.name%></h2>
+    <img class="img-fluid img-goss" src="http://lorempixel.com/800/400/city/<%= params[:id] %>/">
+  </div>
   <% @city_posts.each do |user| %>
-    <div class="m-5">
-      <h5 class='m-3'><%= user.first_name%> <%= user.last_name%> wrote the following gossip(s):</h5>
-        <% user.gossips.each do |gossip|%>
-          <div class="card gossip-card m-3" style="width: auto">
-            <div class="card-body">
-              <h5 class="card-title"><%= link_to gossip.title, gossip_path(gossip.id), :class => "new-link"%></h5>
-              <p class="card-text">Content : <%= gossip.content%></p>
-            </div>
+    <% if gossips?(user) %>
+      <h3><%= link_to user.first_name.capitalize, user_path(user.id), :class => "new-link"%> wrote the following gossip(s):</h3>
+      <% user.gossips.each do |gossip|%>
+        <div class="card gossip-card m-2" style="width: auto;">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to gossip.title, gossip_path(gossip.id), :class => "new-link"%> 
+              <div class="row justify-content-center align-items-center">
+                <div class="d-flex gossip-card align-items-center rounded">
+                  <% pre_like = gossip.likes.find { |like| like.user_id == current_user.id} %>
+                  <% if pre_like %>
+                    <%= button_to '👎', gossip_like_path(gossip, pre_like), method: :delete, class: "m-2 custom-like" %>
+                  <% else %>
+                    <%= button_to '👍', gossip_likes_path(gossip), method: :post, class: "m-2 custom-like" %>
+                  <% end %> 
+                  <p class="m-2"><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                </div>
+              </div>
+            </h5> 
+            <p class="card-text">Content : <%= gossip.content%></p>
           </div>
-        <% end %>
-    </div>
+        </div>
+      <% end %>
+    <% end %>
+    
   <% end %>
+
 </div>

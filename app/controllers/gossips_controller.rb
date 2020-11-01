@@ -4,10 +4,8 @@ class GossipsController < ApplicationController
 
   def show
     @gossip = Gossip.find(params[:id])
-    @user = current_user
     @comment = Comment.new
-    @comment.gossip_id = @gossip.id
-    @comment.user_id = @user.id
+    @like = Like.new
   end
     
   def new
@@ -43,7 +41,7 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    flash[:alert] = "Your gossip has been deleted"
+    flash[:alert] = "Your gossip has been deleted."
     redirect_to gossip_project_home_path
   end
 

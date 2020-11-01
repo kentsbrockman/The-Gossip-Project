@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       redirect_to gossip_path(params[:gossip_id])
     else
       puts @comment.errors.messages
-      puts "error comments"
+      puts "Damn son! Your comment hasn't been saved for some reason 🤔"
     end
   end
 

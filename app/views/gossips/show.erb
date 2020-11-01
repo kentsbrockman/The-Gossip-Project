@@ -22,7 +22,17 @@
 </div>
 
 
-
+<div class="row justify-content-center align-items-center">
+  <div class="d-flex gossip-card align-items-center rounded">
+    <% pre_like = @gossip.likes.find { |like| like.user_id == current_user.id} %>
+    <p class="m-2"><%= @gossip.likes.count %> <%= (@gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+    <% if pre_like %>
+      <%= button_to '👎', gossip_like_path(@gossip, pre_like), method: :delete, class: "m-2 custom-like" %>
+    <% else %>
+      <%= button_to '👍', gossip_likes_path(@gossip), method: :post, class: "m-2 custom-like" %>
+    <% end %> 
+  </div>
+</div>
 
 
 <hr/>
