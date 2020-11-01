@@ -21,7 +21,7 @@
       end
       redirect_back(fallback_location: gossips_path)
     end
-    
+
     private
     def find_gossip
       @gossip = Gossip.find(params[:gossip_id])
