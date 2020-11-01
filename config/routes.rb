@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
 
-    root 'gossip_project#home'
+  root 'welcome#index'
+
+  get '/gossip_project/home', to: 'gossip_project#home'
+
 
     #Hidden welcome
-    get '/welcome/:name', to: 'gossip_project#welcome'
+    get '/gossip_project/welcome/:name', to: 'gossip_project#welcome'
 
     #Nav links
-    get '/team', to: 'gossip_project#team'
-    get '/contact', to: 'gossip_project#contact'
-    get '/privacy', to: 'gossip_project#privacy'
-    get '/terms', to: 'gossip_project#terms'
+    get '/gossip_project/team', to: 'gossip_project#team'
+    get '/gossip_project/contact', to: 'gossip_project#contact'
+    get '/gossip_project/privacy', to: 'gossip_project#privacy'
+    get '/gossip_project/terms', to: 'gossip_project#terms'
 
 
   #Gossips
