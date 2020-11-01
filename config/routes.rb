@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-    root to: 'gossip_project#home'
-
+    root 'gossip_project#welcome'
     get '/gossip_project/home', to: 'gossip_project#home'
 
     #Hidden welcome
