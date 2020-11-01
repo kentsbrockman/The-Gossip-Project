@@ -32,14 +32,36 @@
   
       <!-- Header -->
       <nav class="navbar navbar-light bg-light static-top">
-        <div class="brand">
-          <%= link_to image_tag('favicon-32x32.png', :alt => 'logo', class:"navbar-brand"), gossip_project_home_path  %>
-          <a class="navbar-brand align-top">The Gossip Project</a>
-        </div>
-        <div class="nav-items d-flex">
-          <%= link_to "Team", gossip_project_team_path, class:"nav-link" %>
-          <%= link_to "Contact", gossip_project_contact_path, class:"nav-link" %>
-        </div>
+
+          <div class="brand">
+            <%= link_to image_tag('favicon-32x32.png', :alt => 'logo', class:"navbar-brand"), gossip_project_home_path  %>
+            <a class="navbar-brand align-top">The Gossip Project</a>
+          </div>
+
+          <div class="nav-items d-flex">
+            <%= link_to "Team", gossip_project_team_path, class:"nav-link" %>
+            <%= link_to "Contact", gossip_project_contact_path, class:"nav-link" %>
+          </div>
+
+          <ul class="navbar-nav ml-auto">
+          <% if logged_in? %> 
+            <li class="nav-item">
+              <%= link_to "Log out", session_path(session.id), method: :delete, :class => "nav-item nav-link" %>
+            </li>
+          <% else %>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Login
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to "Log in", new_session_path, :class => "dropdown-item" %>
+                <%= link_to "Sign up", new_user_path, :class => "dropdown-item" %>
+              </div>
+            </div>
+          <% end %>
+          
+        </ul>
+    
       </nav>
 
       <%= yield %>

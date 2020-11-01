@@ -15,9 +15,14 @@
   <p>Content: <%= @gossip.content%></p>
   <p>Written with ❤️ by <%= @gossip.user.first_name%> <%= @gossip.user.last_name%> from <%= @gossip.user.city.name%></br>➡️ <%= link_to "See this user", user_path(@gossip.user.id)%></p>
   <p>Check out all the gossips from <%= link_to @gossip.user.city.name, city_path(@gossip.user.city.id), :class => "new-link"%></p>
-  <%= link_to "Edit gossip", edit_gossip_path(@gossip.id), :class => "btn btn-outline-success mx-4" %>
-  <%= link_to "Delete", gossip_path(@gossip.id), :method => "delete", :class => "btn btn-outline-danger mx-4", :data => {:confirm => "Are you sure about that 😬?"} %>
+  <% if is_creator?(@gossip) %>
+    <%= link_to "Edit gossip", edit_gossip_path(@gossip.id), :class => "btn btn-outline-success mx-4" %>
+    <%= link_to "Delete", gossip_path(@gossip.id), :method => "delete", :class => "btn btn-outline-danger mx-4", :data => {:confirm => "Are you sure about that 😬?"} %>
+  <% end %>
 </div>
+
+
+
 
 
 <hr/>

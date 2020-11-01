@@ -1,14 +1,14 @@
 class CommentsController < ApplicationController
-  #before_action :authenticate_user, only: [:create, :update, :edit, :destroy]
-  def create
-    @user = User.all.sample
-    @comment = Comment.new(post_params)
-    @comment.gossip_id = params[:gossip_id]
-    @comment.user_id = @user.id
+  before_action :authenticate_user
+  before_action :verify_user, only: [:edit, :update, :destroy]
 
+  def create
+    @user = current_user
+    @comment = Comment.new(post_params)
+    @comment.user_id = @user.id
     if @comment.save
       flash[:notice] = "Your comment has been saved!"
-      redirect_to gossip_path(@comment.gossip_id)
+      redirect_to gossip_path(params[:gossip_id])
     else
       puts @comment.errors.messages
       puts "error comments"
@@ -45,6 +45,14 @@ class CommentsController < ApplicationController
   private
   def post_params
     post_params = params.require(:comment).permit(:content)
+  end
+
+  def verify_user
+    @comment = Comment.find(params[:id])
+    unless current_user && (@comment.user_id == current_user.id)
+      flash[:alert] = "Sorry bro! You can't just edit stuff that's not yours to begin with 😁"
+      redirect_to gossip_project_home_path 
+    end
   end
 
 end

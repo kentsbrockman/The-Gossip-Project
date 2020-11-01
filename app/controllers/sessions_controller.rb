@@ -11,9 +11,9 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       # redirige où tu veux, avec un flash ou pas
-      flash.now[:notice] = 'You are connected'
+      flash.now[:notice] = 'You are logged in!'
       redirect_to gossip_project_home_path
-
+  
     else
       flash.now[:alert] = 'Invalid email/password combination'
       render :new
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
+    log_out(current_user)
     redirect_to gossip_project_home_path
   end
 end

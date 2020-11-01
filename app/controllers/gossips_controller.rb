@@ -1,10 +1,10 @@
 class GossipsController < ApplicationController
-  #before_action :authenticate_user, only: [:show, :new]
-
+  before_action :authenticate_user
+  before_action :verify_user, only: [:edit, :update, :destroy]
 
   def show
     @gossip = Gossip.find(params[:id])
-    @user = User.all.sample
+    @user = current_user
     @comment = Comment.new
     @comment.gossip_id = @gossip.id
     @comment.user_id = @user.id
@@ -15,7 +15,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(title: params[:title], content: params[:content], user: User.all.sample)
+    @gossip = Gossip.new(title: params[:title], content: params[:content], user: current_user)
     if @gossip.save
       flash[:notice] = "Your awesome gossip has been saved!"
       redirect_to gossip_project_home_path 
@@ -52,11 +52,12 @@ class GossipsController < ApplicationController
     post_params = params.require(:gossip).permit(:title, :content)
   end
 
-  #def authenticate_user
-    #unless current_user
-      #flash[:alert] = "You need to login in order to see all gossips !"
-      #redirect_to new_session_path
-    #end
-  #end
+  def verify_user
+    @gossip = Gossip.find(params[:id])
+    unless current_user && (@gossip.user_id == current_user.id)
+      flash[:alert] = "Sorry bro! You can't just edit stuff that's not yours to begin with 😁"
+      redirect_to gossip_project_home_path
+    end
+  end
 
 end
