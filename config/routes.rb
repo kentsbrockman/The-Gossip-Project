@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'welcome#index'
+
   #Gossip Project
     #Home
     get '/gossip_project/home', to: 'gossip_project#home'
