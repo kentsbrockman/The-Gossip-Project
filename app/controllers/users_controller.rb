@@ -10,14 +10,19 @@ class UsersController < ApplicationController
   end
 
   def create
+    city = City.find_or_create_by(name: params[:city], zip_code: params[:zipcode])
     @user = User.new(first_name: params[:first_name], last_name: params[:last_name],
-      email: params[:email], description: params[:description], age: params[:age], 
-      password: params[:password], password_confirmation: params[:password_confirmation],
-      city: City.all.sample)
-    if @user.save
-      flash[:notice] = "Hurray! You're now registered onto The Gossip Project platform 🤩"
-      redirect_to new_session_path
-    else
+       email: params[:email], description: params[:description], age: params[:age], 
+       password: params[:password], password_confirmation: params[:password_confirmation],
+      city: city)
+      if @user.save
+        flash[:notice] = "Hurray! You have successfully created your profile 😁"
+        if params[:remember]
+          remember(@user)
+        end
+        log_in(@user)
+        redirect_to gossip_project_home_path
+      else
       flash[:alert] = "Oh no! We cannot create your profile for the following reason(s):"
       puts @user.errors.messages
       render :new

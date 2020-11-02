@@ -31,19 +31,20 @@
         <p class="card-text"><%= gossip.title%></p>
         <p class="card-text text-center"><%= gossip.comments.count%> <%= (gossip.comments.count) == 1 ? 'Comment' : 'Comments'%> </p>
         <div class="d-flex justify-content-center align-items-baseline">
-          <% if logged_in? %> 
-            <% pre_like = gossip.likes.find { |like| like.user_id == current_user.id} %>
-            <p><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-            <% if pre_like %>
-              <%= button_to '👎', gossip_like_path(gossip, pre_like), method: :delete, class: 'mx-2' %>
-            <% else %>
-              <%= button_to '👍', gossip_likes_path(gossip), method: :post, class: 'mx-2' %>
-            <% end %>
-          <% else %>
-            <p><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-            <%= link_to '👍', gossip_path(gossip.id), class: 'mx-2 btn btn-sm btn-light' %>
-          <% end %> 
+        <% if logged_in? %>
+        <% pre_like = gossip.likes.find { |like| like.user_id == current_user.id} %>
+        <p><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+        <% if pre_like %>
+        <%= button_to '👎', gossip_like_path(gossip, pre_like), method: :delete, class: 'mx-2' %>
+        <% else %>
+        <%= button_to '👍', gossip_likes_path(gossip), method: :post, class: 'mx-2' %>
+        <% end %>
+        <% else %>
+        <p><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+        <%= link_to '👍', gossip_path(gossip.id), class: 'mx-2 btn btn-sm btn-light' %>
+        <% end %>
         </div>
+
         <%= link_to "See this gossip", gossip_path(gossip.id), class: "btn btn-sm btn-primary" %>
       </div>
     </div>
