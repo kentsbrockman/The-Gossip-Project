@@ -1,50 +1,56 @@
-# Pimp my Gossip Project
+# The Gossip Project
 
-Yo les devs / correcteurs !
+Hello dear devs!
 
-Bon, vu les heures qu'on a tous passé pour débugger ce giga dossier Rails ici présent, je me dis que cela mérite bien un petit gif des familles ❤️
+It is my pleasure to introduce you to my first project realized entirely with the **Ruby on Rails framework** 😁
 
-![](https://media.giphy.com/media/5rmGFLNTFpYuA/source.gif)
+Affectionately called "The Gossip Project", the idea of this app is to have a **mini social network** where you want to sign up and log in to be able to post content in the form of gossips, comment and like those of other users.
 
-(oui j'étais fan de Gossip Girl à l'époque, et j'assume comme jaja)
+---
 
-Bwef, voici ci-dessous quelques infos sur ce qui vous attend :
+## Features
 
-* Homepage avec tous les potins sans exception, mais pas d'histoire de scroll infini à la Facebook, on va pas déconner non plus 😬
-* Quelques liens de navigation bien qualitatifs, accessibles via la homepage.
-* Des pages potins où tu peux lâcher tes com's 🔥
-* Des pages profils, pour le plaisir inouï de stalker "Noah, de Dunkerque", certifié 100% fake.
-* Des pages ville où les bots se mettent ensemble pour ragoter les b******
-* Et bien plus encore !
-* ... En vrai non pas plus lol, il est tard et je suis pas allé plus loin 😭
-* MAIS, pour me faire pardonner, sachez que :
-  * Je pense avoir capté l'affaire des sessions, logins toussa toussa.
-  * J'ai fait le projet 100% en solo (même si j'ai picoré dans des repos à droite à gauche.)
-  * J'ai quand même conçu un favicon pour ce fake site lol.
-* Bisous les devs !
+Here are some infos about what is waiting for you:
 
+* A homepage with some gossip content available straight (thanks database seeding ❤️)
+* A bunch of static nav links, accessible via the homepage.
+* Dynamic gossip pages where you can drop comments and likes 🔥
+* Profile pages, for the immeasurable pleasure to stalk "Noah, from Dunkerque city", certified 100% fake.
+* City pages, where the profiles get together to gossip, because why not?
 
-## Le setup qui va bien
+---
 
-1. Cloner le repo ou dl le dossier .zip
+## Setup
+
+You can test the website live on [Heroku](https://kents-gossip-project.herokuapp.com/).
+
+Or, if you do use Ruby and Ruby on Rails already, it'd be pretty quick to run the app locally:
+
+1. Download the .zip folder or clone this repo:
 ```
-$ git clone https://github.com/kentsbrockman/gossip_project_QPlaud.git
+$ git clone https://github.com/kentsbrockman/The-Gossip-Project.git
 ```
 
-2. Attention, par mondanité je suis resté sur Rails 6, ce qui implique les commandes suivantes
+2. Get to the root folder:
 ```
-$ rvm gemset create rails6
-$ rvm gemset use rails6
-$ gem install rails -v 6.0.3.4
+$ cd The-Gossip-Project
+``` 
+
+3. Install the required Ruby gems:
+```
 $ bundle install
 ```
 
-3. Derniers bails pour initialiser la BDD
+4. Initialize the database and the server locally: 
 ```
 $ rails db:create
 $ rails db:migrate
 $ rails db:seed
-$ rails server
+rails server
 ```
 
-4. Go sur http://localhost:3000/gossip_project/home pour kiffer ta life 🔥
+5. Go to http://localhost:3000/gossip_project/home to test it out 🔥
+
+---
+
+Have a nice day out there!

@@ -44,7 +44,7 @@
           </div>
 
           <% if logged_in? %>
-            <div class="nav-items d-flex">
+            <div class="nav-items d-flex align-items-center">
               <%= current_user.first_name.capitalize %>
               <%= link_to "Log out", session_path(session.id), method: :delete, :class => "nav-link" %>
             </div>
