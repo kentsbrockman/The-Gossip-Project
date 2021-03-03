@@ -12,11 +12,11 @@ Affectionately called "The Gossip Project", the idea of this app is to have a **
 
 Here are some infos about what is waiting for you:
 
-* A homepage with some gossip content available straight (thanks database seeding ❤️)
-* A bunch of static nav links, accessible via the homepage.
-* Dynamic gossip pages where you can drop comments and likes 🔥
-* Profile pages, for the immeasurable pleasure to stalk "Noah, from Dunkerque city", certified 100% fake.
-* City pages, where the profiles get together to gossip, because why not?
+- A homepage with some gossip content available straight (thanks database seeding ❤️)
+- A bunch of static nav links, accessible via the homepage.
+- Dynamic gossip pages where you can drop comments and likes 🔥
+- Profile pages, for the immeasurable pleasure to stalk "Noah, from Dunkerque city", certified 100% fake.
+- City pages, where the profiles get together to gossip, because why not?
 
 ---
 
